@@ -1,0 +1,20 @@
+{
+  "name": "Elec",
+  "version": "1.0",
+  "description": "Test project",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "webpack-dev-server"
+  },
+  "author": "Dmitrii Boronin",
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.9",
+    "style-loader": "^0.20.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0"
+  }
+}
