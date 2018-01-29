@@ -16,15 +16,23 @@ getJSON('http://93.91.165.233:8081/frontend_data/catalog.json', function(err, da
 });
 
 let sortForm = document.forms.sortImages;
-var rad = sortForm.sortType;
-var prev = null;
-for(var i = 0; i < rad.length; i++) {
-    rad[i].onclick = function() {
-        (prev)? console.log(prev.value):null;
+let radioButtons = sortForm.sortType;
+let prev = null;
+for(var i = 0; i < radioButtons.length; i++) {
+    radioButtons[i].onclick = function() {
+        (prev) ? prev.value : null;
         if(this !== prev) {
             prev = this;
+            console.log('NOT EQUAL');
+            clearPanels();
+            if (prev.value == 'sort_type_size') {
+                panelsArray.sort(compareFileSize);
+            } else if (prev.value == 'sort_type_date') {
+                panelsArray.sort(compareTimeStamp);
+            }
+            setPanels();
         }
-        console.log(this.value)
+        console.log(this.value);
     };
 }
 
@@ -38,9 +46,27 @@ for(var i = 0; i < rad.length; i++) {
 
  img.src = src;
  document.body.appendChild(img);*/
+function compareTimeStamp(a,b) {
+    if (a.timestamp < b.timestamp)
+        return -1;
+    if (a.timestamp > b.timestamp)
+        return 1;
+    return 0;
+}
 
+function compareFileSize(a,b) {
+    if (a.filesize < b.filesize)
+        return -1;
+    if (a.filesize > b.filesize)
+        return 1;
+    return 0;
+}
 
-function setPanels(){
+function clearPanels() {
+    mainContentElement.innerHTML = '';
+}
+
+function setPanels() {
     panelsArray.forEach(function(item, i, arr) {
         //alert( i + ": " + item + " (массив:" + arr + ")" );
         console.log(item.image);
