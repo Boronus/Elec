@@ -29,6 +29,15 @@ for(var i = 0; i < radioButtons.length; i++) {
                 panelsArray.sort(compareFileSize);
             } else if (prev.value == 'sort_type_date') {
                 panelsArray.sort(compareTimeStamp);
+            } else if (prev.value == 'sort_type_name') {
+                panelsArray.sort(compareFileName);
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+                panelsArray.forEach(function(item, i, arr) {
+                    console.log( item.image.substring(item.image.lastIndexOf('/')+1) );
+                });
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+            } else if (prev.value == 'sort_type_category') {
+                panelsArray.sort(compareCategory);
             }
             setPanels();
         }
@@ -46,6 +55,20 @@ for(var i = 0; i < radioButtons.length; i++) {
 
  img.src = src;
  document.body.appendChild(img);*/
+
+
+//string_a.localeCompare(string_b);
+
+/* Expected Returns:
+
+ 0:  exact match
+
+ -1:  string_a < string_b
+
+ 1:  string_a > string_b
+
+ */
+
 function compareTimeStamp(a,b) {
     if (a.timestamp < b.timestamp)
         return -1;
@@ -54,10 +77,26 @@ function compareTimeStamp(a,b) {
     return 0;
 }
 
+function compareCategory(a,b) {
+    if (a.category < b.category)
+        return -1;
+    if (a.category > b.category)
+        return 1;
+    return 0;
+}
+
 function compareFileSize(a,b) {
     if (a.filesize < b.filesize)
         return -1;
     if (a.filesize > b.filesize)
+        return 1;
+    return 0;
+}
+
+function compareFileName(a,b) {
+    if (a.image.substring(a.image.lastIndexOf('/')+1) < b.image.substring(a.image.lastIndexOf('/')+1))
+        return -1;
+    if (a.image.substring(a.image.lastIndexOf('/')+1) > b.image.substring(a.image.lastIndexOf('/')+1))
         return 1;
     return 0;
 }
