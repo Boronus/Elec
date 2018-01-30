@@ -1,3 +1,5 @@
+@import "tree.css" screen;
+
 html,
 body {
     margin: 0;
@@ -34,7 +36,7 @@ body {
     position: relative;
 }
 
-.main-content article::before {
+.main-content article .close {
     content: '';
     position: absolute;
     right: 0;
