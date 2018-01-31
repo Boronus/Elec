@@ -11,6 +11,9 @@
 <body>
     <section id="main_content" class="main-content"></section>
     <header class="main-header">
+
+        <div id="paginator" class="paginator"></div>
+
         <form id="sort_images" name="sortImages">
             <input name="sortType" type="radio" id="sort_type_category" value="sort_type_category"><label for="sort_type_category">Сортировать по категории</label>
             <input name="sortType" type="radio" id="sort_type_date" value="sort_type_date"><label for="sort_type_date">Сортировать по дате</label><br>
@@ -19,8 +22,13 @@
 
             <button id="clear_closed">Восстановить все карточки</button>
         </form>
+
     </header>
-    <footer class="main-footer"></footer>
+    <footer class="main-footer">
+        <div id="progress_bar" class="progress-bar">
+            <div id="progress_line" class="progress-line"></div>
+        </div>
+    </footer>
 
 
     <script src="bundle.js"></script>

@@ -21,3 +21,14 @@ export function compareFileSize(a,b) {
 export function compareFileName(a,b) {
     return a.name.localeCompare( b.name );
 }
+
+export function compareCategoryAndFileName(a,b) {
+    let categoryCompare = a.category.localeCompare( b.category );
+    if ( categoryCompare )
+        return categoryCompare;
+    return a.name.localeCompare( b.name );
+}
+
+export function compareNumbers(a, b) {
+    return a - b;
+}
