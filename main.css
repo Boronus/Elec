@@ -127,3 +127,7 @@ body {
     width: 0;
     height: 100%;
 }
+
+.card-info {
+    margin-left: 10px;
+}

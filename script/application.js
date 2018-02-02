@@ -275,6 +275,20 @@ function setPanels() {
             this.style.visibility='visible';
         };
 
+        let newCardInfo = document.createElement('div');
+        newCardInfo.classList.add('card-info');
+
+        let date = new Date();
+        date.setTime(panelsArray[i].timestamp);
+        console.log( date );
+        newCardInfo.innerHTML = '<p>Дата снимка: '
+            + date.getDate() + '.' + ( date.getMonth() + 1 ) + '.' + date.getDate() + ' '
+            + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '</p>'
+            + '<p>Категория снимка: ' + panelsArray[i].category + '</p>'
+            + '<p>Имя файла: ' + panelsArray[i].name + '</p>'
+            + '<p>Размер файла: ' + panelsArray[i].filesize + '</p>';
+
+
         let newClose = document.createElement('div');
         newClose.classList.add('close');
         newClose.addEventListener('click',closePanel)
@@ -282,6 +296,7 @@ function setPanels() {
         newImageWrapper.appendChild(newImage);
         newPanel.appendChild(newClose);
         newPanel.appendChild(newImageWrapper);
+        newPanel.appendChild(newCardInfo);
         mainContentElement.appendChild(newPanel);
     }
 
