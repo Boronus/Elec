@@ -1,0 +1,59 @@
+.main-content article {
+    height: 500px;
+    position: relative;
+}
+
+.main-content article .close {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 32px;
+    width: 32px;
+
+    background: url("img/close_icon.gif") 100% no-repeat;
+    background-size: cover;
+}
+
+.main-content article .image-wrapper{
+    background: #505050;
+    border-bottom: #9BD7D5 solid 1px;
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image:url('/img/loader.gif');
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+
+.main-content article .image-wrapper img{
+    display: inline-block;
+    max-width:300px;
+    max-height:300px;
+    vertical-align: bottom;
+}
+
+.paginator {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    white-space: nowrap;
+    background: #ecf0f1;
+}
+
+.paginator a {
+    display: inline-block;
+    min-width: 20px;
+    padding: 5px 10px;
+    background-color: #95a5a6;
+    cursor: pointer;
+}
+
+article .card-info {
+    border-bottom: #9BD7D5 solid 2px;
+    border-top: #9BD7D5 solid 2px;
+}
